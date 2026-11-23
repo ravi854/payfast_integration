@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Redirecting to Payfast...</title>
+	<style>
+		body { font-family: sans-serif; text-align: center; padding-top: 15%; color: #333; }
+	</style>
+</head>
+<body onload="document.forms['payfast_form'].submit();">
+	<h3>Connecting to Payfast Secure Checkout...</h3>
+	<p>Please do not refresh or close this window.</p>
+	<form id="payfast_form" name="payfast_form" action="{{ action_url }}" method="POST">
+		{% for key, value in fields.items() %}
+			<input type="hidden" name="{{ key }}" value="{{ value }}">
+		{% endfor %}
+		<noscript>
+			<button type="submit">Click here to continue to Payfast</button>
+		</noscript>
+	</form>
+</body>
+</html>

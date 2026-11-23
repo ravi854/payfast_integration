@@ -1,9 +1,17 @@
 app_name = "payfast_integration"
 app_title = "Payfast Integration"
 app_publisher = "a1its"
-app_description = "Payfast Integration"
+app_description = "Payfast Payment Gateway integration for Frappe and ERPNext"
 app_email = "ravi@a1its.net"
 app_license = "mit"
+
+required_apps = ["frappe", "payments"]
+
+doc_events = {
+	"Payment Entry": {
+		"on_submit": "payfast_integration.api.auto_invoice_paid_sales_order",
+	}
+}
 
 # Apps
 # ------------------
