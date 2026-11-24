@@ -12,6 +12,7 @@
   "column_break_1",
   "sandbox",
   "enforce_ip_whitelist",
+  "auto_create_invoice",
   "debug_log"
  ],
  "fields": [
@@ -59,6 +60,13 @@
    "fieldname": "enforce_ip_whitelist",
    "fieldtype": "Check",
    "label": "Enforce Payfast Source IP Whitelist"
+  },
+  {
+   "default": "0",
+   "description": "Automatically create and submit a Sales Invoice when a Sales Order is paid via Payfast",
+   "fieldname": "auto_create_invoice",
+   "fieldtype": "Check",
+   "label": "Auto-Create Sales Invoice on Payment"
   },
   {
    "default": "0",

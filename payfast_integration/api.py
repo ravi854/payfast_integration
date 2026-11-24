@@ -184,6 +184,10 @@ def auto_invoice_paid_sales_order(doc, method=None):
 	if doc.payment_type != "Receive":
 		return
 
+	# Check if Auto-Create Sales Invoice is enabled in Payfast Settings
+	if not frappe.db.get_value("Payfast Settings", "Payfast", "auto_create_invoice"):
+		return
+
 	payfast_accounts = frappe.get_all(
 		"Payment Gateway Account",
 		filters={"payment_gateway": "Payfast"},
